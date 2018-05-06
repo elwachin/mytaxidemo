@@ -24,6 +24,9 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 @LargeTest
 public class LoginTests {
 
+    //THIS SHOULD BE READ FROM AN EXTERNAL FILE LIKE A JSON
+    private final String USERNAME = "whiteelephant261";
+    private final String PASSWORD = "video1";
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
@@ -46,22 +49,13 @@ public class LoginTests {
 
     @Test
     public void login() {
-        onView(withId(R.id.edt_username)).perform(typeText("whiteelephant261"), closeSoftKeyboard());
-        onView(withId(R.id.edt_password)).perform(typeText("video1"), closeSoftKeyboard());
+        onView(withId(R.id.edt_username)).perform(typeText(USERNAME), closeSoftKeyboard());
+        onView(withId(R.id.edt_password)).perform(typeText(PASSWORD), closeSoftKeyboard());
         onView(withId(R.id.btn_login)).perform(click());
 
     }
 
-    @Test
-    public void searchByName() {
 
-        onView(withId(R.id.textSearch)).check(matches(isDisplayed()));
-        onView(withId(R.id.textSearch)).perform(typeText("sar"), closeSoftKeyboard());
-        onView(withText("Sarah Friedrich")).check(matches(isDisplayed()));
-
-        onView(withText("Sarah Friedrich")).perform(click());
-
-    }
 
     @Test
     public void logout() {
