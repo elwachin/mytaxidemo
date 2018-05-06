@@ -63,11 +63,11 @@ public class LoginTests {
 
     }
 
-   /* @Test
+    @Test
     public void logout() {
         onView(withId(R.id.toolbar)).perform(click());
         onView(withId(R.id.nav_username)).check(matches(withText("whiteelephant261")));
-    }*/
+    }
 
 
 }
